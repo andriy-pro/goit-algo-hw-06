@@ -1,8 +1,10 @@
-import networkx as nx
+from math import atan2, cos, radians, sin, sqrt
+
 import matplotlib.pyplot as plt
-from math import radians, cos, sin, sqrt, atan2
+import networkx as nx
 
 
+# This is a testt sentence with speling errorrs and gramatical mistakes.
 # Функція для обчислення відстані між двома точками за географічними координатами
 def haversine(lat1, lon1, lat2, lon2):
     R = 6371.0  # Радіус Землі в кілометрах
