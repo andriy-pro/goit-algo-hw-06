@@ -1,6 +1,64 @@
 import heapq
 from math import atan2, cos, radians, sin, sqrt
-from typing import Dict, List, Set, Tuple
+from typing import Dict, List, Optional, Tuple
+
+
+def dijkstra(
+    graph: Dict[str, List[Tuple[str, float]]], start: str
+) -> Tuple[Dict[str, float], Dict[str, Optional[str]]]:
+    # Ініціалізація відстаней до всіх станцій як нескінченність
+    distances = {station: float("inf") for station in graph}
+    # Відстань до стартової станції дорівнює нулю
+    distances[start] = 0
+    # Ініціалізація пріоритетної черги
+    priority_queue = [(0, start)]
+    # Ініціалізація cловника попередників для відновлення шляху
+    previous_nodes = {station: None for station in graph}
+
+    while priority_queue:
+        # Витягуємо станцію з найменшою відстанню
+        current_distance, current_station = heapq.heappop(priority_queue)
+
+        # Якщо знайдена відстань більша за записану, пропускаємо
+        if current_distance > distances[current_station]:
+            continue
+
+        # Перевіряємо сусідів поточної станції
+        for neighbor, weight in graph[current_station]:
+            # Обчислюємо відстань до сусіда
+            new_distance = current_distance + weight
+
+            # Якщо знайдена відстань менша, оновлюємо її
+            if new_distance < distances[neighbor]:
+                # Оновлюємо відстань
+                distances[neighbor] = new_distance
+                # Зберігаємо вузол, який був попереднім
+                previous_nodes[neighbor] = current_station
+                # Додаємо сусіда в пріоритетну чергу
+                heapq.heappush(priority_queue, (new_distance, neighbor))
+
+    return distances, previous_nodes
+
+
+def reconstruct_path(
+    previous_nodes: Dict[str, Optional[str]], start: str, end: str
+) -> List[str]:
+    path = []
+    current = end
+    while current is not None:
+        path.append(current)
+        current = previous_nodes[current]
+    path.reverse()
+    if path[0] == start:
+        return path
+    else:
+        # Якщо шлях не веде до старту, повертаємо порожній список
+        return []
+
+
+def print_info(message: str, color_code: str = "\033[0m"):
+    """Функція для виведення інформації з кольоровим форматуванням."""
+    print(f"{color_code}{message}\033[0m")
 
 
 # Функція для обчислення відстані між двома точками за географічними координатами
@@ -50,32 +108,8 @@ edges = [
 ]
 
 
-def dijkstra(graph: Dict[str, List[Tuple[str, float]]], start: str) -> Dict[str, float]:
-    # Відстані до кожного вузла
-    distances = {station: float("inf") for station in graph}
-    distances[start] = 0  # Відстань до стартового вузла - 0
-    priority_queue = [(0, start)]  # Черга з пріоритетом
-
-    while priority_queue:
-        current_distance, current_station = heapq.heappop(priority_queue)
-
-        # Якщо відстань до поточного вузла більше, ніж вже знайдена, пропускаємо
-        if current_distance > distances[current_station]:
-            continue
-
-        for neighbor, weight in graph[current_station]:
-            distance = current_distance + weight
-
-            # Якщо знайдена нова коротша відстань до сусіда, оновлюємо
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(priority_queue, (distance, neighbor))
-
-    return distances
-
-
 # Створення графу з ребер
-graph = {station: [] for station in stations.keys()}
+graph = {station: [] for station in stations.keys()}  # Створюємо порожній граф
 for station1, station2 in edges:
     lat1, lon1 = stations[station1]
     lat2, lon2 = stations[station2]
@@ -88,5 +122,7 @@ start_node = "Бурштинська ТЕС"
 shortest_paths = dijkstra(graph, start_node)
 
 # Вивід результатів
-for station, distance in shortest_paths.items():
-    print(f"Відстань від '{start_node}' до '{station}': {distance:.2f} км")
+for station, distance in shortest_paths[0].items():
+    print_info(f"Відстань до станції '{station}': {distance:.2f} км", "\033[92m")
+    path = reconstruct_path(shortest_paths[1], start_node, station)
+    print_info(f"{' -> '.join(path)}\n", "\033[94m")
