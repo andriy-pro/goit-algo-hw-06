@@ -54,11 +54,28 @@ Repository for the homework solution from the GoIT course 'Basic Algorithms and 
 
 https://github.com/andriy-pro/goit-algo-hw-06/blob/main/research/research/1_Graph_Layout_Comparison.ipynb
 
-### 5. Побудова графу
+### 5. Спосіб побудови графу
 
 Для зображення графу у Python можна обирати кілька різних методів. Для вибору оптимального для цього випадку, було проведено порівняння, з результами якого можна ознайомитись за цим посиланням (файл: './research/2_Comparison_of_Geographical_Distance_Calculations.ipynb'):
 
 https://github.com/andriy-pro/goit-algo-hw-06/blob/main/research/2_Comparison_of_Geographical_Distance_Calculations.ipynb
+
+
+### 6. Граф мережі енергетичних об'єктів України
+
+![Граф мережі енергетичних об'єктів України](./Ukrainian_Energy_Network_Graph_Selected_Stations.png)
+
+## Аналіз характеристик графа
+
+1. **Кількість вузлів**: 11  
+   Граф має 11 вузлів, кожен з яких відповідає одній із електростанцій в Україні.
+
+2. **Кількість ребер**: 13  
+   Мережа включає 13 з'єднань між станціями, які відображають зв'язки між ними.
+
+3. **Середній ступінь вузла**: 2.36
+
+
 
 ## Аналіз характеристик графа
 
