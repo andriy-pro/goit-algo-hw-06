@@ -213,3 +213,6 @@ junit-*.xml
 
 # Resources for testing the script
 my_tests/
+
+# Files with WSL metadata
+*Zone.Identifier

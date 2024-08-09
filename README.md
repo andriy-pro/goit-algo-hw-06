@@ -51,12 +51,12 @@ Repository for the homework solution from the GoIT course 'Basic Algorithms and 
 - власна імплементацією формули гаверсинуса.
 
 З результатами дослідження можна ознайомитись за настпним посиланням (файл: './research/1_Graph_Layout_Comparison.ipynb'):
-
+https://github.com/andriy-pro/goit-algo-hw-06/blob/bbd8c681bc36dd817c8c6782195dfacd78667511/research/1_Graph_Layout_Comparison.ipynb
 
 ### 5. Побудова графу
 
 Для зображення графу у Python можна обирати кілька різних методів. Для вибору оптимального для цього випадку, було проведено порівняння, з результами якого можна ознайомитись за цим посиланням (файл: './research/2_Comparison_of_Geographical_Distance_Calculations.ipynb'):
-
+https://github.com/andriy-pro/goit-algo-hw-06/blob/main/research/2_Comparison_of_Geographical_Distance_Calculations.ipynb
 
 ## Аналіз характеристик графа
 
