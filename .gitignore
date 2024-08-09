@@ -166,3 +166,50 @@ cython_debug/
 # Avoid committing settings and workspace files created by VS Code
 .vscode/
 *.code-workspace
+
+# EditorConfig
+# Avoid committing EditorConfig configuration files
+.editorconfig
+
+# Flake8
+# Avoid committing Flake8 configuration files
+.flake8
+
+# mypy
+# Avoid committing mypy configuration files
+mypy.ini
+
+# VS Code Remote Development
+.vscode-server/
+.vscode-test/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Emacs
+*~
+\#*\#
+.*.swp
+
+# Temporary files
+*.tmp
+*.temp
+
+# Log files
+*.log
+
+# Coverage reports
+coverage/
+
+# Test artifacts
+junit-*.xml
+
+# Resources for testing the script
+my_tests/
