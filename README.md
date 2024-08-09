@@ -52,7 +52,7 @@ Repository for the homework solution from the GoIT course 'Basic Algorithms and 
 
 З результатами дослідження можна ознайомитись за настпним посиланням (файл: './research/1_Graph_Layout_Comparison.ipynb'):
 
-https://github.com/andriy-pro/goit-algo-hw-06/blob/main/research/research/1_Graph_Layout_Comparison.ipynb
+https://github.com/andriy-pro/goit-algo-hw-06/blob/main/research/1_Graph_Layout_Comparison.ipynb
 
 ### 5. Спосіб побудови графу
 
